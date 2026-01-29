@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Uche Ralph-Opara | Portfolio</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            /* Light Theme Palette */
+            --bg-dark: #ffffff; /* White Background */
+            --bg-card: #f8fafc; /* Very light gray/white for cards */
+            --text-main: #111827; /* Deep Charcoal for main text */
+            --text-muted: #4b5563; /* Slate gray for secondary text */
+            --accent-primary: #7c3aed; /* Vivid Violet */
+            --accent-secondary: #0d9488; /* Teal */
+            --border-gradient: linear-gradient(to right, #0d9488, #9333ea); /* Green-Pink Gradient */
+            --shadow-soft: 0 10px 40px -10px rgba(0,0,0,0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.7;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--text-main);
+            font-weight: 700;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* --- UTILITIES --- */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #7c3aed 0%, #0d9488 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        /* --- BACKGROUND GLOW --- */
+        /* Subtle colored glow spots modified for white background */
+        .hero-glow {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(124, 58, 237, 0.05) 0%, rgba(255, 255, 255, 0) 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.02);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 0.5px;
+            color: var(--text-main);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            font-weight: 600;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-primary);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+        }
+
+        /* New styling for degrees beside the name */
+        .hero-degrees {
+            font-size: 1.2rem; /* Significantly smaller than the H1 */
+            color: var(--accent-primary);
+            font-weight: 600;
+            vertical-align: middle;
+            margin-left: 15px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-family: 'Manrope', sans-serif; /* Use body font for contrast */
+        }
+        
+        @media (max-width: 768px) {
+            .hero-degrees {
+                display: block;
+                margin-left: 0;
+                margin-top: 10px;
+                font-size: 1rem;
+            }
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            background: var(--accent-primary);
+            color: #fff;
+            border: none;
+            box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(124, 58, 237, 0.4);
+            color: #fff;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--text-muted);
+            color: var(--text-muted);
+            margin-left: 15px;
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent-primary);
+            color: var(--accent-primary);
+        }
+
+        /* --- ABOUT SECTION --- */
+        .section-title {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+        
+        .section-subtitle {
+            font-size: 1rem;
+            color: var(--accent-primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            margin-bottom: 60px;
+            display: block;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        /* --- PROFILE IMAGE STYLING --- */
+        .about-image-wrapper {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.15);
+            border: 8px solid #fff; /* Elegant white frame */
+            transform: rotate(2deg); /* Subtle artistic tilt */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            max-width: 450px; /* Limit width so it's not too overpowering */
+            margin: 0 auto; /* Center in its column */
+        }
+
+        .about-image-wrapper:hover {
+            transform: rotate(0deg); /* Straighten on hover */
+            box-shadow: 0 25px 50px -12px rgba(124, 58, 237, 0.25); /* Purple shadow glow on hover */
+        }
+
+        .about-image-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* --- EXPERTISE (Styled like 'Service Cards') --- */
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        /* The signature Gradient Border Card - Adapted for Light Mode */
+        .expertise-card {
+            position: relative;
+            background: #fff; 
+            padding: 1px; /* Creates the border width */
+            border-radius: 20px;
+            box-shadow: var(--shadow-soft);
+            transition: transform 0.3s;
+            background-image: var(--border-gradient); /* The gradient border */
+        }
+        
+        .expertise-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.12);
+        }
+
+        .expertise-inner {
+            background: #fff; /* White inner */
+            border-radius: 19px; 
+            padding: 40px 25px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .expertise-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .expertise-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .expertise-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* --- PUBLICATIONS --- */
+        .pub-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .pub-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 25px;
+            background: #fff;
+            padding: 30px;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: var(--shadow-soft);
+        }
+        
+        /* Subtle gradient accent on hover */
+        .pub-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--accent-primary);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .pub-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+        }
+        
+        .pub-card:hover::before {
+            opacity: 1;
+        }
+
+        .pub-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-primary); /* Solid color for light mode */
+            opacity: 0.4;
+            min-width: 50px;
+        }
+
+        .pub-content h4 {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .pub-link {
+            font-size: 0.85rem;
+            color: var(--accent-primary);
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-weight: 600;
+            margin-top: 5px;
+            margin-right: 15px;
+        }
+
+        .pub-link:hover {
+            color: var(--accent-secondary);
+        }
+
+        /* --- MEDIA --- */
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .media-card {
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .media-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .video-wrapper {
+            width: 100%;
+            background: #000;
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+        
+        .video-wrapper video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .media-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .media-tag {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-secondary); /* Teal Accent */
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .media-title {
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        /* --- CONTACT --- */
+        .contact-section {
+            text-align: center;
+            background: linear-gradient(to top, rgba(124, 58, 237, 0.05), transparent);
+        }
+
+        .contact-box {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: #fff;
+            border: 2px solid var(--accent-primary);
+            font-size: 1.8rem;
+            margin: 20px 0;
+            color: var(--accent-primary);
+            transition: 0.3s;
+        }
+
+        .social-btn:hover {
+            background: var(--accent-primary);
+            color: #fff;
+            box-shadow: 0 5px 20px rgba(124, 58, 237, 0.4);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            background: #f9fafb;
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            .nav-links {
+                display: none;
+            }
+            .hamburger {
+                display: block;
+                color: var(--text-main);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Glow Effect (Subtle Purple Wash) -->
+    <div class="hero-glow"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-content">
+            <a href="#" class="logo gradient-text">URO.</a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#expertise">Expertise</a>
+                <a href="#publications">Publications</a>
+                <a href="#media">Media</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Dr. Uche <span class="gradient-text">Ralph-Opara</span><span class="hero-degrees">MBBS, MSc, MBA</span></h1>
+            <p>Chief Health Officer | Global Health Strategist | Implementation Science Expert</p>
+            <div class="cta-group">
+                <a href="#publications" class="btn">View Publications</a>
+                <a href="#contact" class="btn btn-outline">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-padding">
+        <div class="container">
+            <span class="section-subtitle">Introduction</span>
+            <h2 class="section-title">Overview.</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>I am a dedicated physician and public health leader with a comprehensive background spanning clinical practice, program management, and strategic leadership. With a trifecta of qualifications—MBBS, MSc, and MBA—I bridge the gap between medical science and sustainable health business models.</p>
+                    <p>Currently serving as Chief Health Officer, I lead initiatives focused on maternal and child health, HIV/AIDS prevention, and health systems strengthening across Nigeria and the globe.</p>
+                </div>
+                
+                <!-- Profile Image Area -->
+                <div class="about-image-wrapper">
+                    <img src="WhatsApp Image 2026-01-24 at 12.02.45 PM.jpeg" alt="Dr. Uche Ralph-Opara">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Section (Styled as 'Cards' from reference) -->
+    <section id="expertise" class="section-padding">
+        <div class="container">
+            <span class="section-subtitle">What I Do</span>
+            <h2 class="section-title">Expertise.</h2>
+            <div class="expertise-grid">
+                
+                <div class="expertise-card">
+                    <div class="expertise-inner">
+                        <i class="fas fa-baby expertise-icon" style="color: #0d9488;"></i>
+                        <h3>Maternal & Child Health</h3>
+                        <p>Championing breastfeeding practices and antenatal care to reduce mortality rates.</p>
+                    </div>
+                </div>
+
+                <div class="expertise-card">
+                    <div class="expertise-inner">
+                        <i class="fas fa-ribbon expertise-icon" style="color: #7c3aed;"></i>
+                        <h3>HIV/AIDS & PMTCT</h3>
+                        <p>Leading research and strategies to eliminate mother-to-child transmission of HIV.</p>
+                    </div>
+                </div>
+
+                <div class="expertise-card">
+                    <div class="expertise-inner">
+                        <i class="fas fa-chart-line expertise-icon" style="color: #9333ea;"></i>
+                        <h3>Health Systems</h3>
+                        <p>Designing robust frameworks to improve healthcare delivery in public & private sectors.</p>
+                    </div>
+                </div>
+
+                <div class="expertise-card">
+                    <div class="expertise-inner">
+                        <i class="fas fa-microscope expertise-icon" style="color: #0d9488;"></i>
+                        <h3>Implementation Research</h3>
+                        <p>Conducting field studies to understand barriers and develop evidence-based interventions.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="publications" class="section-padding">
+        <div class="container">
+            <span class="section-subtitle">My Work</span>
+            <h2 class="section-title">Publications.</h2>
+            <div class="pub-list">
+                
+                <!-- Pub 1 -->
+                <div class="pub-card">
+                    <div class="pub-number">01</div>
+                    <div class="pub-content">
+                        <h4>The introduction of group antenatal care in northern Nigeria: an implementation research case study</h4>
+                        <div class="links">
+                            <a href="https://www.medrxiv.org/content/10.1101/2025.09.07.25335045v1.full" target="_blank" class="pub-link"><i class="fas fa-external-link-alt"></i> Read Paper</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pub 2 -->
+                <div class="pub-card">
+                    <div class="pub-number">02</div>
+                    <div class="pub-content">
+                        <h4>Improving Breastfeeding Practices: The Role of Community Breastfeeding Guardians (BFGs) in Lagos State</h4>
+                        <div class="links">
+                            <a href="https://www.academia.edu/51897034/Improving_Breastfeeding_Practices_The_Role_of_Community_Breastfeeding_Guardians_BFGs_in_Lagos_State" target="_blank" class="pub-link"><i class="fas fa-file-pdf"></i> Academia</a>
+                            <a href="https://cdn.nutrition.org/article/S2475-2991(23)09360-5/pdf" target="_blank" class="pub-link"><i class="fas fa-file-pdf"></i> PDF</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pub 3 -->
+                <div class="pub-card">
+                    <div class="pub-number">03</div>
+                    <div class="pub-content">
+                        <h4>Breastfeeding Interpersonal Communication and Mobile Phone Support by Private Health Care Providers in Lagos</h4>
+                        <div class="links">
+                            <a href="https://www.academia.edu/51897076/Breastfeeding_Interpersonal_Communication_and_Mobile_Phone_Support_by_Private_Health_Care_Providers_in_Lagos_Nigeria_Increased_Exclusive_Breastfeeding_at_6_and_24_Weeks" target="_blank" class="pub-link"><i class="fas fa-file-pdf"></i> Academia</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pub 4 -->
+                <div class="pub-card">
+                    <div class="pub-number">04</div>
+                    <div class="pub-content">
+                        <h4>Playing the Catch-Up Game: Accelerating the Scale-Up of PMTCT Services in Nigeria</h4>
+                        <div class="links">
+                            <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0169342" target="_blank" class="pub-link"><i class="fas fa-external-link-alt"></i> PLOS One</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pub 5 -->
+                <div class="pub-card">
+                    <div class="pub-number">05</div>
+                    <div class="pub-content">
+                        <h4>Decline in positivity rates among HIV-exposed infants with changes in prevention regimens</h4>
+                        <div class="links">
+                            <a href="https://www.academia.edu/75854351/Decline_in_positivity_rates_among_HIV_exposed_infants_with_changes_in_prevention_of_mother_to_child_transmission_antiretroviral_regimens_in_Nigeria_Evidence_from_7_years_of_field_implementation" target="_blank" class="pub-link"><i class="fas fa-file-pdf"></i> Read Paper</a>
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- Pub 6 -->
+                 <div class="pub-card">
+                    <div class="pub-number">06</div>
+                    <div class="pub-content">
+                        <h4>Breastfeeding Interpersonal Communication, Mobile Phone Support, and Mass Media Messaging</h4>
+                        <div class="links">
+                            <a href="https://www.sciencedirect.com/science/article/pii/S0022316622006174?via%3Dihub" target="_blank" class="pub-link"><i class="fas fa-external-link-alt"></i> ScienceDirect</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Media Section -->
+    <section id="media" class="section-padding">
+        <div class="container">
+            <span class="section-subtitle">Appearances</span>
+            <h2 class="section-title">Media & Talks.</h2>
+            <div class="media-grid">
+
+                <!-- Video Feature -->
+                <div class="media-card" style="grid-column: 1 / -1;">
+                    <div class="video-wrapper">
+                        <!-- VIDEO PLACEHOLDER: Ensure the file 'Dr Uche Ralph-Opara Speaking at WHA 2025.mp4' is in the same folder -->
+                        <video controls>
+                            <source src="Dr Uche Ralph-Opara Speaking at WHA 2025.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="media-content">
+                        <span class="media-tag">Featured Talk</span>
+                        <h4 class="media-title">Speaking at WHA 2025</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-muted);">Addressing the World Health Assembly on health workforce investment and shared responsibility.</p>
+                    </div>
+                </div>
+
+                <!-- Media Item 1 -->
+                <a href="https://www.globalcitizen.org/en/content/nigeria-women-maternal-health-care-access/" target="_blank" class="media-card">
+                    <div class="media-content">
+                        <span class="media-tag">Global Citizen</span>
+                        <h4 class="media-title">1 in 22 Nigerian Women Die While Having a Baby. How Can We Stop This?</h4>
+                        <div class="pub-link">Read Article <i class="fas fa-arrow-right" style="margin-left: 5px;"></i></div>
+                    </div>
+                </a>
+
+                <!-- Media Item 2 -->
+                <a href="https://nigeriahealthwatch.medium.com/better-breastfeeding-for-a-healthier-nigeria-2020-world-breastfeeding-week-16e1f01c8b3f" target="_blank" class="media-card">
+                    <div class="media-content">
+                        <span class="media-tag">Nigeria Health Watch</span>
+                        <h4 class="media-title">Better Breastfeeding for a Healthier Nigeria</h4>
+                        <div class="pub-link">Read Article <i class="fas fa-arrow-right" style="margin-left: 5px;"></i></div>
+                    </div>
+                </a>
+
+                <!-- Media Item 3 -->
+                <a href="https://businessday.ng/interview/women-in-business/article/uche-ralph-opara-chief-health-officer-for-project-hope/" target="_blank" class="media-card">
+                    <div class="media-content">
+                        <span class="media-tag">Business Day</span>
+                        <h4 class="media-title">Interview: Chief Health Officer for Project HOPE</h4>
+                        <div class="pub-link">Read Interview <i class="fas fa-arrow-right" style="margin-left: 5px;"></i></div>
+                    </div>
+                </a>
+
+                <!-- Media Item 4 -->
+                <a href="https://www.womenlifthealth.org/article/wlh_campaign_stories/uche-ralph-opara/" target="_blank" class="media-card">
+                    <div class="media-content">
+                        <span class="media-tag">Women Lift Health</span>
+                        <h4 class="media-title">Transforming Health Leadership Through Action</h4>
+                        <div class="pub-link">Read Profile <i class="fas fa-arrow-right" style="margin-left: 5px;"></i></div>
+                    </div>
+                </a>
+
+                 <!-- Media Item 5 -->
+                 <a href="https://web.facebook.com/gatesfoundation/posts/dr-uche-ralph-opara-is-a-breastfeedingheroa-mother-of-4-she-led-an-alive-thrive-/10157973272743072/" target="_blank" class="media-card">
+                    <div class="media-content">
+                        <span class="media-tag">Gates Foundation</span>
+                        <h4 class="media-title">Recognized as a Breastfeeding Hero</h4>
+                        <div class="pub-link">View Post <i class="fas fa-arrow-right" style="margin-left: 5px;"></i></div>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding contact-section">
+        <div class="container contact-box">
+            <span class="section-subtitle">Get in Touch</span>
+            <h2 class="section-title">Contact.</h2>
+            <p style="margin-bottom: 40px; font-size: 1.1rem; color: var(--text-muted);">
+                I am always open to discussing public health strategies, collaborations, and speaking engagements.
+            </p>
+            <a href="https://www.linkedin.com/in/uche-ralph-opara-mbbs-msc-mba-76620698" target="_blank" class="social-btn">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.7;">
+                Connect on LinkedIn
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Dr. Uche Ralph-Opara. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple Mobile Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            if (navLinks.style.display === 'flex') {
+                navLinks.style.display = 'none';
+            } else {
+                navLinks.style.display = 'flex';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '80px';
+                navLinks.style.left = '0';
+                navLinks.style.width = '100%';
+                navLinks.style.background = '#ffffff';
+                navLinks.style.padding = '20px';
+                navLinks.style.borderBottom = '1px solid rgba(0,0,0,0.05)';
+                navLinks.style.boxShadow = '0 10px 20px rgba(0,0,0,0.05)';
+            }
+        });
+    </script>
+</body>
+</html>
