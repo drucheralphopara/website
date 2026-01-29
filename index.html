@@ -263,6 +263,48 @@
             max-width: 1000px; /* Limit width slightly for readability on large screens */
         }
 
+        /* --- SKILLS SECTION STYLING --- */
+        .skills-container {
+            margin-top: 40px;
+        }
+
+        .skills-title {
+            font-family: 'Manrope', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            max-width: 1000px;
+        }
+
+        .skill-tag {
+            background: rgba(124, 58, 237, 0.05);
+            color: var(--accent-primary);
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border: 1px solid rgba(124, 58, 237, 0.2);
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .skill-tag:hover {
+            background: var(--accent-primary);
+            color: #fff;
+            border-color: var(--accent-primary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(124, 58, 237, 0.2);
+        }
+
         /* --- EXPERTISE (Styled like 'Service Cards') --- */
         .expertise-grid {
             display: grid;
@@ -563,8 +605,54 @@
                 <div class="about-text">
                     <p>Dr. Uche Ralph-Opara is an experienced Medical Doctor and Public Health Specialist with about two decades of experience in leading evidence-based public health interventions across the globe. With a strong background in managing programs funded by USAID, Global Fund, and the Bill and Melinda Gates Foundation, Dr. Ralph-Opara has led initiatives in HIV/AIDS, Tuberculosis, RMNCH/Family Planning, and Nutrition.</p>
                     <p>Currently serving as Chief Health Officer at Project HOPE, Dr. Ralph-Opara oversees the organization's global health initiatives, providing strategic direction and technical expertise. Previously, she held roles as Deputy Chief Health Officer, Deputy Regional Director for Africa and Team Lead/Associate Director for maternal and child nutrition projects. Dr. Ralph-Opara is renowned for her exceptional leadership skills, program management expertise, and commitment to driving positive health outcomes. She is a 2026 Global Fellow of the Gates Foundation Funded Women Lift Health Leadership Program. She holds advanced degrees in Public Health, and Business Administration, reflecting her dedication to professional growth and excellence.</p>
+                    
+                    <!-- Professional Skills Section -->
+                    <div class="skills-container">
+                        <h4 class="skills-title">Professional Skills</h4>
+                        <div class="skills-grid">
+                            <span class="skill-tag">Administrative support</span>
+                            <span class="skill-tag">Budget management</span>
+                            <span class="skill-tag">Capacity building</span>
+                            <span class="skill-tag">Community mobilization</span>
+                            <span class="skill-tag">Data analysis</span>
+                            <span class="skill-tag">Database management</span>
+                            <span class="skill-tag">Employee development</span>
+                            <span class="skill-tag">Employee training</span>
+                            <span class="skill-tag">Grant management</span>
+                            <span class="skill-tag">Grant writing</span>
+                            <span class="skill-tag">Healthcare policy</span>
+                            <span class="skill-tag">Mentorship</span>
+                            <span class="skill-tag">Nonprofit management</span>
+                            <span class="skill-tag">Organizational strategy</span>
+                            <span class="skill-tag">Outreach strategy</span>
+                            <span class="skill-tag">Program evaluation</span>
+                            <span class="skill-tag">Program development</span>
+                            <span class="skill-tag">Program implementation</span>
+                            <span class="skill-tag">Program management</span>
+                            <span class="skill-tag">Project management</span>
+                            <span class="skill-tag">Public health advocacy</span>
+                            <span class="skill-tag">Public speaking</span>
+                            <span class="skill-tag">Quality assurance</span>
+                            <span class="skill-tag">Stakeholder engagement</span>
+                            <span class="skill-tag">Systems strengthening</span>
+                            <span class="skill-tag">Technical support</span>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Download Resume Section -->
+    <section id="resume" class="section-padding" style="background: linear-gradient(to right, rgba(13, 148, 136, 0.03), rgba(124, 58, 237, 0.03));">
+        <div class="container" style="text-align: center;">
+            <h2 class="section-title" style="font-size: 2.5rem;">Download Resume</h2>
+            <p style="margin-bottom: 30px; color: var(--text-muted); max-width: 600px; margin-left: auto; margin-right: auto;">
+                For a comprehensive overview of my professional experience, leadership roles, and academic qualifications, please view my full resume.
+            </p>
+            <a href="https://github.com/drucheralphopara/website/blob/main/Dr%20Uche%20Ralph-Opara%20-%20Resume.pdf?raw=true" target="_blank" class="btn">
+                <i class="fas fa-file-download" style="margin-right: 10px;"></i> Download CV
+            </a>
         </div>
     </section>
 
