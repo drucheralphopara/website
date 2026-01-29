@@ -139,12 +139,29 @@
 
         /* --- HERO SECTION --- */
         .hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             position: relative;
+            padding-top: 100px; /* Offset for fixed nav */
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero-avatar {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #fff;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
         }
 
         .hero-content h1 {
@@ -178,6 +195,9 @@
                 margin-left: 0;
                 margin-top: 10px;
                 font-size: 1rem;
+            }
+            .hero-content h1 {
+                font-size: 2.5rem;
             }
         }
 
@@ -230,41 +250,17 @@
         }
 
         .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
+            /* Changed to block to allow full width text */
+            display: block;
+            margin-top: 20px;
         }
 
         .about-text p {
             margin-bottom: 20px;
             color: var(--text-muted);
-            font-size: 1.05rem;
-        }
-
-        /* --- PROFILE IMAGE STYLING --- */
-        .about-image-wrapper {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.15);
-            border: 8px solid #fff; /* Elegant white frame */
-            transform: rotate(2deg); /* Subtle artistic tilt */
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            max-width: 450px; /* Limit width so it's not too overpowering */
-            margin: 0 auto; /* Center in its column */
-        }
-
-        .about-image-wrapper:hover {
-            transform: rotate(0deg); /* Straighten on hover */
-            box-shadow: 0 25px 50px -12px rgba(124, 58, 237, 0.25); /* Purple shadow glow on hover */
-        }
-
-        .about-image-wrapper img {
-            width: 100%;
-            height: auto;
-            display: block;
-            object-fit: cover;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            max-width: 1000px; /* Limit width slightly for readability on large screens */
         }
 
         /* --- EXPERTISE (Styled like 'Service Cards') --- */
@@ -505,11 +501,8 @@
 
         /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
             .about-grid {
-                grid-template-columns: 1fr;
+                display: block;
             }
             .nav-links {
                 display: none;
@@ -546,6 +539,12 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container hero-content">
+            <!-- Circular Avatar inserted here -->
+            <img src="https://raw.githubusercontent.com/drucheralphopara/website/main/WhatsApp%20Image%202026-01-24%20at%2012.02.45%20PM.jpeg" 
+                 alt="Dr. Uche Ralph-Opara" 
+                 class="hero-avatar"
+                 onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Uche+Ralph-Opara&background=7c3aed&color=fff&size=500';">
+                 
             <h1>Dr. Uche <span class="gradient-text">Ralph-Opara</span><span class="hero-degrees">MBBS, MSc, MBA</span></h1>
             <p>Chief Health Officer | Global Health Strategist | Implementation Science Expert</p>
             <div class="cta-group">
@@ -560,19 +559,10 @@
         <div class="container">
             <h2 class="section-title">About Me</h2>
             <div class="about-grid">
+                <!-- Image removed, text expanded to full width -->
                 <div class="about-text">
                     <p>Dr. Uche Ralph-Opara is an experienced Medical Doctor and Public Health Specialist with about two decades of experience in leading evidence-based public health interventions across the globe. With a strong background in managing programs funded by USAID, Global Fund, and the Bill and Melinda Gates Foundation, Dr. Ralph-Opara has led initiatives in HIV/AIDS, Tuberculosis, RMNCH/Family Planning, and Nutrition.</p>
                     <p>Currently serving as Chief Health Officer at Project HOPE, Dr. Ralph-Opara oversees the organization's global health initiatives, providing strategic direction and technical expertise. Previously, she held roles as Deputy Chief Health Officer, Deputy Regional Director for Africa and Team Lead/Associate Director for maternal and child nutrition projects. Dr. Ralph-Opara is renowned for her exceptional leadership skills, program management expertise, and commitment to driving positive health outcomes. She is a 2026 Global Fellow of the Gates Foundation Funded Women Lift Health Leadership Program. She holds advanced degrees in Public Health, and Business Administration, reflecting her dedication to professional growth and excellence.</p>
-                </div>
-                
-                <!-- Profile Image Area -->
-                <div class="about-image-wrapper">
-                    <!-- 
-                        Updated image source to raw.githubusercontent.com for better embedding reliability
-                    -->
-                    <img src="https://raw.githubusercontent.com/drucheralphopara/website/main/WhatsApp%20Image%202026-01-24%20at%2012.02.45%20PM.jpeg" 
-                         alt="Dr. Uche Ralph-Opara"
-                         onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Uche+Ralph-Opara&background=7c3aed&color=fff&size=500';">
                 </div>
             </div>
         </div>
